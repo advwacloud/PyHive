@@ -181,6 +181,9 @@ class HiveCompiler(SQLCompiler):
 
 
 class HiveTypeCompiler(compiler.GenericTypeCompiler):
+    def visit_TINYINT(self, type_):
+        return 'TINYINT'
+
     def visit_INTEGER(self, type_):
         return 'INT'
 
