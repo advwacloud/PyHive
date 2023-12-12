@@ -74,5 +74,8 @@ setup(
             'presto = pyhive.sqlalchemy_presto:PrestoDialect',
             'trino.pyhive = pyhive.sqlalchemy_trino:TrinoDialect',
         ],
+        'dis_sqlalchemy.dialects': [
+            'hive = pyhive.dis_sqlalchemy_hive:HiveDialect',
+        ],
     }
 )
