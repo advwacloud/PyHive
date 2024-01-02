@@ -135,6 +135,7 @@ _type_map = {
     'tinyint': mysql_tinyinteger,
     'smallint': types.SmallInteger,
     'int': types.Integer,
+    'integer': types.Integer,
     'bigint': types.BigInteger,
     'float': types.Float,
     'double': types.Float,
