@@ -383,6 +383,13 @@ class HiveDialect(default.DefaultDialect):
         if schema:
             query += ' IN ' + self.identifier_preparer.quote_identifier(schema)
         return [row[1] for row in connection.execute(text(query))]
+    
+    def get_table_names_with_comment(self, connection, schema=None, **kw):
+        query = 'SHOW COMMENT_TABLES'
+        if schema:
+            query += ' IN ' + self.identifier_preparer.quote_identifier(schema)
+        result = [[row[1], row[3]] for row in connection.execute(text(query))]
+        return result
 
     def do_rollback(self, dbapi_connection):
         # No transactions for Hive
